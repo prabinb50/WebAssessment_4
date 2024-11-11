@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Quiz</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">MWH</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../resource.html">Resourses</a></li>
+                <li><a href="../mood-tracker.html">Mood Tracker</a></li>
+                <li><a href="../Quiz.html">Quizzes</a></li>
+                <li><a href="../blogs.html">Blog</a></li>
+                <li><a href="../about-us.html">About Us</a></li>
+                <li><a href="../contact-us.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="#" id="search-icon"><img src="../images/search-icon.svg" alt="Search"></a>
+        </div>
+    </header><br><br>
+    <h1 style="text-align: center;">Understand Yourself</h1>
+    <main>
+        <form id="quiz1" class="quiz-form">
+            <!-- Question 1 -->
+            <div class="question">
+                <h2>1. How often do you feel anxious in social situations?</h2>
+                <label>
+                    <input type="radio" name="q1" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="always"> Always
+                </label>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <h2>2. How frequently do you feel overwhelmed by your emotions?</h2>
+                <label>
+                    <input type="radio" name="q2" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>3. Do you take time to reflect on how you’re feeling emotionally?</h2>
+                <label>
+                    <input type="radio" name="q3" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>4. How often do you feel comfortable expressing your emotions to others?</h2>
+                <label>
+                    <input type="radio" name="q4" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>5. Do you prioritize your mental well-being in your daily routine?</h2>
+                <label>
+                    <input type="radio" name="q5" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="always"> Always
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="button" class="submit-btn">Get Results</button>
+        </form>
+
+        <div class="result"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mental Wellness Hub. All rights reserved.</p>
+    </footer>
+
+</body>
+<script>
+    document.querySelector('.submit-btn').addEventListener('click', function () {
+        const answers = document.querySelectorAll('.quiz-form input[type="radio"]:checked');
+        const totalQuestions = document.querySelectorAll('.question').length;
+
+        // Check if all questions are answered
+        if (answers.length < totalQuestions) {
+            alert("Please answer all questions before submitting.");
+            return;
+        }
+
+        let score = 0;
+
+        // Assign scores to responses
+        answers.forEach(answer => {
+            switch (answer.value) {
+                case 'never':
+                    score += 1;
+                    break;
+                case 'sometimes':
+                    score += 2;
+                    break;
+                case 'often':
+                    score += 3;
+                    break;
+                case 'always':
+                    score += 4;
+                    break;
+            }
+        });
+
+        // Analysis based on total score
+        let analysis = '';
+        let suggestion = '';
+
+        if (score <= 5) {
+            analysis = "You seem to be feeling balanced overall.";
+            suggestion = "Keep up your self-care routine, and try a few minutes of mindful breathing daily.";
+        } else if (score <= 10) {
+            analysis = "You may occasionally feel stressed or anxious.";
+            suggestion = "Try guided meditation to bring more calmness, and consider daily journaling to manage your thoughts and emotions.";
+        } else if (score <= 15) {
+            analysis = "It seems you often experience emotional challenges.";
+            suggestion = "Consider practicing deep breathing exercises and listening to calming music. You might also benefit from progressive muscle relaxation techniques.";
+        } else {
+            analysis = "You may be feeling overwhelmed often.";
+            suggestion = "Try progressive muscle relaxation or speak to a mental health professional for support. Connecting with a community or engaging in physical exercise could also help alleviate stress.";
+        }
+
+        // Positive affirmation messages
+        const affirmations = [
+            "Remember, every day is a new opportunity for growth!",
+            "You’re stronger than you think!",
+            "Take it one day at a time; you’re doing great.",
+            "Your well-being matters. Keep prioritizing yourself.",
+            "Small steps lead to big changes. Keep going!"
+        ];
+        const randomAffirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
+
+        // Display results
+        const resultDiv = document.querySelector('.result');
+        resultDiv.innerHTML = `
+        <h2>Mood Analysis</h2>
+        <p>${analysis}</p>
+        <h2>Suggested Meditation</h2>
+        <p>${suggestion}</p>
+        <h2>Positive Affirmation</h2>
+        <p>${randomAffirmation}</p>
+    `;
+        resultDiv.style.marginTop = '20px';
+        resultDiv.style.padding = '20px';
+        resultDiv.style.backgroundColor = '#FFB6C1';
+        resultDiv.style.borderRadius = '8px';
+        resultDiv.style.transition = 'opacity 0.5s';
+        resultDiv.style.opacity = '0';
+
+        // Fade-in effect for result display
+        setTimeout(() => {
+            resultDiv.style.opacity = '1';
+        }, 50);
+    });
+
+</script>
+<!-- <script src="script.js"></script> -->
+
+</html>

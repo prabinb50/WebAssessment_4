@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="./css/contactUs.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">MWH</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resource.html">Resources</a></li>
+                <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                <li><a href="Quiz.html">Quizzes</a></li>
+                <li><a href="blogs.html">Blog</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="#" id="search-icon"><img src="./images/search-icon.svg" alt="Search"></a>
+        </div>
+    </header>
+
+    <div class="contact-content">
+        <h1>Get in<br>Touch</h1>
+        <p>Have any questions? We are waiting to hear from you. Let us know how we can serve you best. It's an honor to support you in your journey toward better health.</p>
+        <div class="contact-info">
+            <div class="info-item">
+                <span class="icon">&#128205;</span>
+                <span>Putalisadak, Kathmandu 44600</span>
+            </div>
+            <div class="info-item">
+                <span class="icon">&#128222;</span>
+                <span>+977 9841000000</span>
+            </div>
+            <div class="info-item">
+                <span class="icon">&#9993;</span>
+                <span>support@mhsh.com.np</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 style="color: #333333;">Contact Us</h2>
+        <form id="contact-form">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" placeholder="First name" name="fname" required>
+
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" placeholder="Last name" name="lname" required><br>
+
+            <label for="email">E-mail Address</label>
+            <input type="email" id="email" placeholder="E-mail Address" name="email" required><br>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Phone Number" name="phone" required><br>
+
+            <label for="query">Query</label>
+            <textarea id="query" placeholder="Add your query" class="text-input" name="query" required></textarea>
+        </form><br>
+
+        <button class="button" id="button-submit">Submit</button>
+    </div>
+
+    <div class="image">
+        <img src="./images/brain.png" alt="contact-us">
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Mental Wellness Hub. All rights reserved.</p>
+    </footer>
+
+    <!--  JS for form submission -->
+    <script>
+        document.getElementById('button-submit').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const firstName = document.getElementById('fname').value;
+            const lastName = document.getElementById('lname').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const query = document.getElementById('query').value;
+
+            // Validate form data (basic)
+            if (firstName === "" || lastName === "" || email === "" || phone === "" || query === "") {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            // Create an object to store the data
+            const contactInfo = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phone: phone,
+                query: query
+            };
+
+            // Save the data in localStorage
+            localStorage.setItem('contactInfo', JSON.stringify(contactInfo));
+
+            // Alert user and reset the form
+            alert('Thank you for reaching out! We have received your query.');
+
+            // Clear the form after submission
+            document.getElementById('contact-form').reset();
+        });
+    </script>
+
+</body>
+
+</html>

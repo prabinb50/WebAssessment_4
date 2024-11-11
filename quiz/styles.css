@@ -1,0 +1,166 @@
+/* General Styles */
+body {
+    color: #444444;
+    /* Dark Gray for body text */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #c3d6e6;
+    /* Slightly lighter background */
+}
+
+header {
+    background-color: #A3C1DA; /* Teal Green */
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    position: fixed;
+    width: 98%;
+    top: 0; /* Ensure it's at the very top */
+    left: 0;
+    right: 0; /* Make it span the full width */
+    z-index: 1000; /* Keep it on top of other elements */
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #333333;
+    text-decoration: none;
+}
+
+/* Theme Touch for Links */
+nav ul li a:hover {
+    color: #FFB6C1; /* Light pink on hover */
+}
+
+.icons a {
+    margin-left: 15px;
+}
+
+.icons img {
+    width: 24px;
+    height: 24px;
+    filter: invert(19%) sepia(12%) saturate(572%) hue-rotate(152deg) brightness(91%) contrast(91%);
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+label {
+    display: block;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 8px;
+    padding: 8px;
+    border: 2px solid #FFB6C1;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+label:hover {
+    background-color: #FFB6C1;  
+}
+
+button {
+    background-color: #FFB6C1;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+button:hover {
+    background-color: #FF69B4;
+}
+
+/* Search Bar */
+.search-bar {
+    position: absolute;
+    top: 70px;
+    right: 40px;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+    border: 1px solid #E6E6FA;
+    outline: none;
+    padding: 8px;
+    width: 200px;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    background-color: #A3C1DA;
+    color: #333333;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: auto;
+    margin-top: 20px;
+}
+
+.result.fade-in {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #FFB6C1;
+    border-radius: 8px;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+

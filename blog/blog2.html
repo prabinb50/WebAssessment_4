@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support Hub- 10 Tips for Improving Your Mental Health Daily</title>
+    <link rel="stylesheet" href="./css/individual-blog.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">MWH</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../resource.html">Resourses</a></li>
+                <li><a href="../mood-tracker.html">Mood Tracker</a></li>
+                <li><a href="../Quiz.html">Quizzes</a></li>
+                <li><a href="../blogs.html">Blog</a></li>
+                <li><a href="../about-us.html">About Us</a></li>
+                <li><a href="../contact-us.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="#" id="search-icon"><img src="./search-icon.svg" alt="Search"></a>
+            <!-- <a href="#"><img src="user-icon.svg" alt="User"></a>
+            <a href="#"><img src="heart-icon.svg" alt="Favorites"></a> -->
+        </div>
+    </header>
+    <main class="post-container">
+        <article class="blog-post-content">
+            <h1>10 Tips for Improving Your Mental Health Daily</h1>
+            <p class="meta-info">By <span>Yangma Lama</span> | Published on <span>October 11, 2024</span></p>
+
+            <p>
+                Mental health is just as important as physical health, yet it's often overlooked in the hustle and
+                bustle of daily life. Improving your mental well-being doesn’t have to involve drastic changes—it can
+                start with small, consistent habits. Here are ten tips that you can incorporate into your daily routine
+                to boost your mental health.
+            </p>
+
+            <ol>
+                <li>
+                    <h3> Your Day with Gratitude</h3>
+                    Taking a few moments each morning to focus on what you're grateful for can set a positive tone for
+                    the day. Whether it’s appreciating the sunrise, your loved ones, or even a good cup of coffee, this
+                    small practice helps shift your mindset toward positivity.
+                </li>
+                <li>
+                    <h3> Get Moving</h3>
+                    <p>Exercise is one of the most effective ways to boost mental health. It releases endorphins, which
+                        are
+                        natural mood enhancers, and reduces stress. Even a 20-minute walk can make a difference in how
+                        you
+                        feel. Choose activities you enjoy, whether it’s yoga, running, dancing, or biking. </p>
+                </li>
+                <li>
+                    <h3>Practice Mindfulness</h3>
+                    <p>Mindfulness is about staying present in the moment, without judgment. Practicing mindfulness can
+                        help reduce stress and improve focus. Try simple techniques like deep breathing exercises, or
+                        download a mindfulness app to guide you through meditation sessions. </p>
+                </li>
+
+                <img src="./image/image2.jpg" alt="Main Blog Image" class="post-image">
+
+                <li>
+                    <h3>Connect with Loved Ones</h3>
+                    <p>Human connection is crucial for mental well-being. Make an effort to spend quality time with
+                        family or friends, even if it’s just a phone call or text. These interactions can provide
+                        emotional support and reduce feelings of loneliness.</p>
+                </li>
+                <li>
+                    <h3>Take Breaks Throughout the Days</h3>
+                    <p>Burnout can happen quickly when you push yourself too hard without breaks. Make time for short,
+                        restful pauses during your day to reset. A 5-minute stretch, a quick walk, or simply stepping
+                        away from your screen can help refresh your mind.</p>
+                </li>
+                <li>
+                    <h3> Limit Social Media</h3>
+                    <p>While social media can help you stay connected, it can also lead to feelings of inadequacy or
+                        anxiety. Set boundaries for your social media use by scheduling specific times to check it and
+                        avoiding it before bed to promote a better night’s sleep.</p>
+                </li>
+                <li>
+                    <h3> Eat a Balanced Diet</h3>
+                    <p>The food you eat has a direct impact on your mental health. A diet rich in fruits, vegetables,
+                        whole grains, and healthy fats can improve brain function and emotional balance. Incorporate
+                        omega-3-rich foods like salmon or flaxseeds for an added mental health boost.</p>
+                </li>
+                <li>
+                    <h3> Set Small, Achievable Goals</h3>
+                    <p>Accomplishing even small tasks can provide a sense of purpose and achievement. Break larger goals
+                        into manageable steps, and celebrate your progress along the way. This helps build confidence
+                        and reduces overwhelm.</p>
+                </li>
+                <li>
+                    <h3>Get Enough Sleep</h3>
+                    <p>Sleep is essential for mental health. Lack of sleep can lead to irritability, stress, and
+                        difficulty focusing. Aim for 7-9 hours of sleep per night and establish a relaxing bedtime
+                        routine to help you wind down.</p>
+                </li>
+                <li>
+                    <h3>Seek Help When Needed</h3>
+                    <p>It’s okay to ask for help when you’re struggling. Whether it’s talking to a trusted friend or
+                        seeking professional support, recognizing when you need assistance is a strength, not a
+                        weakness.</p>
+                </li>
+            </ol>
+            <p>Improving your mental health doesn’t require big changes—small daily habits can have a lasting impact.
+                Start by implementing a few of these tips, and soon you’ll notice a difference in how you feel.
+                Remember, your mental well-being is worth prioritizing every single day.</p>
+        </article>
+
+        <!-- Optional Sidebar -->
+        <aside class="sidebar">
+            <h3>Related Posts</h3>
+            <ul>
+                <li><a href="..\articles\article3.html">Related Post 1</a></li>
+                <li><a href="..\articles\article2.html">Related Post 2</a></li>
+                <li><a href="blog\blog4.html">Related Post 3</a></li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- Comment Section -->
+    <section class="comments-section">
+        <h3>Comments</h3>
+        <form id="commentForm">
+            <textarea id="commentInput" placeholder="Leave a comment..." rows="4" required></textarea><br>
+            <button type="submit" class="button" id="submit-button">Submit</button>
+        </form>
+        <div id="commentsDisplay"></div> <!-- This will display the comments -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mental Wellness Hub. All rights reserved.</p>
+    </footer>
+    <script>
+        // Function to load comments from localStorage and display them
+        function loadComments() {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            const commentsDisplay = document.getElementById("commentsDisplay");
+            commentsDisplay.innerHTML = ""; // Clear previous comments
+
+            // Loop through the comments and display each one
+            comments.forEach(function (comment) {
+                const commentDiv = document.createElement("div");
+                commentDiv.classList.add("comment");
+                commentDiv.innerHTML = `
+                    <p>${comment}</p>
+                    <hr>
+                `;
+                commentsDisplay.appendChild(commentDiv);
+            });
+        }
+
+        // Function to handle form submission and add a new comment
+        document.getElementById("commentForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the form from submitting and refreshing the page
+
+            // Get the comment input value
+            const commentInput = document.getElementById("commentInput").value.trim();
+
+            if (commentInput === "") {
+                alert("Please enter a comment."); // Alert if the comment is empty
+                return;
+            }
+
+            // Get existing comments from localStorage or initialize an empty array
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+
+            // Add the new comment to the array
+            comments.push(commentInput);
+
+            // Save the updated comments array back to localStorage
+            localStorage.setItem("comments", JSON.stringify(comments));
+
+            // Reload the comments to display the new one
+            loadComments();
+
+            // Clear the comment input field after submitting
+            document.getElementById("commentInput").value = "";
+        });
+
+        // Load comments when the page loads
+        window.onload = function () {
+            loadComments();
+        };
+    </script>
+
+</body>
+
+</html>

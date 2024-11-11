@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Quiz</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+</head>
+
+<body>
+    <header>
+        <div class="logo">MWH</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../resource.html">Resourses</a></li>
+                <li><a href="../mood-tracker.html">Mood Tracker</a></li>
+                <li><a href="../Quiz.html">Quizzes</a></li>
+                <li><a href="../blogs.html">Blog</a></li>
+                <li><a href="../about-us.html">About Us</a></li>
+                <li><a href="../contact-us.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="#" id="search-icon"><img src="../images/search-icon.svg" alt="Search"></a>
+        </div>
+    </header><br><br>
+
+    <h1 style="text-align: center;">Self esteem and confidence</h1>
+
+    <main>
+        <form id="quiz4" class="quiz-form">
+            <!-- Question 1 -->
+            <div class="question">
+                <h2>1. How often do you feel good about yourself and your abilities?</h2>
+                <label>
+                    <input type="radio" name="q1" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="always"> Always
+                </label>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <h2>2. Do you avoid comparing yourself to others?</h2>
+                <label>
+                    <input type="radio" name="q2" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>3. How often do you challenge yourself to try new things or face fears?</h2>
+                <label>
+                    <input type="radio" name="q3" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>4. Are you confident in making decisions without doubting yourself?</h2>
+                <label>
+                    <input type="radio" name="q4" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>5. How often do you feel proud of your achievements, no matter how small?</h2>
+                <label>
+                    <input type="radio" name="q5" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="always"> Always
+                </label>
+            </div>
+
+            <!-- Add more questions similarly -->
+
+            <!-- Submit Button -->
+            <button type="button" id="submit-btn">Get Results</button>
+        </form>
+        <div class="result"></div> <!-- Add a div to display the result -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mental Wellness Hub. All rights reserved.</p>
+    </footer>
+
+</body>
+<script>
+    document.querySelector('#submit-btn').addEventListener('click', function () {
+        const answers = document.querySelectorAll('.quiz-form input[type="radio"]:checked');
+        const totalQuestions = document.querySelectorAll('.question').length;
+
+        // Ensure all questions are answered
+        if (answers.length < totalQuestions) {
+            alert("Please answer all questions before submitting.");
+            return;
+        }
+
+        let score = 0;
+
+        // Calculate score based on responses
+        answers.forEach(answer => {
+            switch (answer.value) {
+                case 'never':
+                    score += 1;
+                    break;
+                case 'sometimes':
+                    score += 2;
+                    break;
+                case 'often':
+                    score += 3;
+                    break;
+                case 'always':
+                    score += 4;
+                    break;
+            }
+        });
+
+        // Analysis and suggestions based on score
+        let analysis = '';
+        let suggestion = '';
+
+        if (score <= 5) {
+            analysis = "It seems like you're struggling with self-esteem and confidence.";
+            suggestion = "Try focusing on self-acceptance and celebrating small wins. Practicing gratitude can help build self-worth over time.";
+        } else if (score <= 10) {
+            analysis = "You have some level of self-confidence but may face occasional doubts.";
+            suggestion = "Challenge yourself with new experiences and focus on strengths. Building self-compassion can support your growth in confidence.";
+        } else if (score <= 15) {
+            analysis = "You have a healthy level of self-esteem and confidence.";
+            suggestion = "Continue reinforcing your strengths and practicing positive self-talk to maintain your self-confidence.";
+        } else {
+            analysis = "You possess a strong sense of self-esteem and confidence.";
+            suggestion = "Consider sharing your positive outlook with others. Mentoring or guiding someone on their journey can reinforce your own confidence further.";
+        }
+
+        // Random positive affirmation for self-esteem
+        const affirmations = [
+            "Believe in your unique strengths and talents!",
+            "Embrace your journey and recognize your worth.",
+            "You are capable and resilient!",
+            "Every step forward counts, no matter how small.",
+            "Keep building yourself up—you are worth it."
+        ];
+        const randomAffirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
+
+        // Display result
+        const resultDiv = document.querySelector('.result');
+        resultDiv.innerHTML = `
+            <h2>Self-Esteem & Confidence Analysis</h2>
+            <p>${analysis}</p>
+            <h2>Suggested Strategy</h2>
+            <p>${suggestion}</p>
+            <h2>Positive Affirmation</h2>
+            <p>${randomAffirmation}</p>
+        `;
+        resultDiv.style.marginTop = '20px';
+        resultDiv.style.padding = '20px';
+        resultDiv.style.backgroundColor = '#D8BFD8';
+        resultDiv.style.borderRadius = '8px';
+        resultDiv.style.transition = 'opacity 0.5s';
+        resultDiv.style.opacity = '0';
+
+        // Fade-in effect for result
+        setTimeout(() => {
+            resultDiv.style.opacity = '1';
+        }, 50);
+    });
+</script>
+
+</html>

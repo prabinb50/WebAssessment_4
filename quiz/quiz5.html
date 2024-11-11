@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Quiz</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+</head>
+
+<body>
+    <header>
+        <div class="logo">MWH</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../resource.html">Resourses</a></li>
+                <li><a href="../mood-tracker.html">Mood Tracker</a></li>
+                <li><a href="../Quiz.html">Quizzes</a></li>
+                <li><a href="../blogs.html">Blog</a></li>
+                <li><a href="../about-us.html">About Us</a></li>
+                <li><a href="../contact-us.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="#" id="search-icon"><img src="../images/search-icon.svg" alt="Search"></a>
+        </div>
+    </header><br><br>
+    <h1 style="text-align: center;">Stress management</h1>
+    <main>
+        <form id="quiz5" class="quiz-form">
+            <!-- Question 1 -->
+            <div class="question">
+                <h2>1. How often do you feel overwhelmed by stress in your daily life?</h2>
+                <label>
+                    <input type="radio" name="q1" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="always"> Always
+                </label>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <h2>2. Do you practice techniques like deep breathing or meditation to manage stress?</h2>
+                <label>
+                    <input type="radio" name="q2" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>3. How often do you take time for yourself to recharge after a stressful day?</h2>
+                <label>
+                    <input type="radio" name="q3" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>4. Are you able to stay calm during a stressful situation?</h2>
+                <label>
+                    <input type="radio" name="q4" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>5.How often do you feel that you have control over your stress levels?</h2>
+                <label>
+                    <input type="radio" name="q5" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="always"> Always
+                </label>
+            </div>
+
+            <!-- Add more questions similarly -->
+
+            <!-- Submit Button -->
+            <button type="button" id="submit-btn">Get Results</button>
+        </form>
+        <div class="result"></div> <!-- Add a div to display the result -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mental Wellness Hub. All rights reserved.</p>
+    </footer>
+
+</body>
+<script>
+    document.querySelector('#submit-btn').addEventListener('click', function () {
+        const answers = document.querySelectorAll('.quiz-form input[type="radio"]:checked');
+        const totalQuestions = document.querySelectorAll('.question').length;
+
+        // Ensure all questions are answered
+        if (answers.length < totalQuestions) {
+            alert("Please answer all questions before submitting.");
+            return;
+        }
+
+        let score = 0;
+
+        // Calculate score based on responses
+        answers.forEach(answer => {
+            switch (answer.value) {
+                case 'never':
+                    score += 1;
+                    break;
+                case 'sometimes':
+                    score += 2;
+                    break;
+                case 'often':
+                    score += 3;
+                    break;
+                case 'always':
+                    score += 4;
+                    break;
+            }
+        });
+
+        // Analysis and suggestions based on score
+        let analysis = '';
+        let suggestion = '';
+
+        if (score <= 5) {
+            analysis = "You may be experiencing high stress levels with limited coping strategies.";
+            suggestion = "Consider introducing relaxation techniques, such as meditation, exercise, or spending time on enjoyable activities.";
+        } else if (score <= 10) {
+            analysis = "You have some basic stress management techniques but may struggle to manage stress effectively.";
+            suggestion = "Try practicing deep breathing or mindfulness regularly. Scheduling small breaks during stressful periods can help too.";
+        } else if (score <= 15) {
+            analysis = "You have a fair level of stress management practices.";
+            suggestion = "Keep up the good work! Try experimenting with new strategies, like journaling or connecting with friends for support.";
+        } else {
+            analysis = "You have excellent stress management practices and are likely well-equipped to handle challenging situations.";
+            suggestion = "Maintain your current practices, and continue exploring positive ways to keep stress in check.";
+        }
+
+        // Random encouragement for stress relief
+        const encouragements = [
+            "Remember to take deep breaths and let go of tension.",
+            "Self-care is essential. Take some time for yourself.",
+            "Focus on what you can control, and let go of the rest.",
+            "You have the strength to handle this!",
+            "Keep prioritizing your well-being—you deserve it."
+        ];
+        const randomEncouragement = encouragements[Math.floor(Math.random() * encouragements.length)];
+
+        // Display result
+        const resultDiv = document.querySelector('.result');
+        resultDiv.innerHTML = `
+            <h2>Stress Management Analysis</h2>
+            <p>${analysis}</p>
+            <h2>Suggested Approach</h2>
+            <p>${suggestion}</p>
+            <h2>Encouragement</h2>
+            <p>${randomEncouragement}</p>
+        `;
+        resultDiv.style.marginTop = '20px';
+        resultDiv.style.padding = '20px';
+        resultDiv.style.backgroundColor = '#FFDAB9';
+        resultDiv.style.borderRadius = '8px';
+        resultDiv.style.transition = 'opacity 0.5s';
+        resultDiv.style.opacity = '0';
+
+        // Fade-in effect for result
+        setTimeout(() => {
+            resultDiv.style.opacity = '1';
+        }, 50);
+    });
+</script>
+
+</html>

@@ -1,0 +1,228 @@
+body {
+  font-family: 'Lora', serif;
+  margin: 0;
+  padding: 0;
+  background-color: #c3d6e6;
+  /* Slightly lighter background */
+}
+
+header {
+  background-color: #A3C1DA;
+  /* Teal Green */
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  position: fixed;
+  z-index: 1000;
+  width: 98%;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bolder;
+  color: #fff;
+  /* Dark grey color */
+
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333333;
+  /* Soft Pink for links */
+  font-size: 16px;
+}
+
+/* Theme Touch for Links */
+nav ul li a:hover {
+  color: #FFB6C1; /* Light pink on hover */
+}
+
+.icons a {
+  margin-left: 15px;
+}
+
+.icons img {
+  width: 24px;
+  height: 24px;
+  filter: invert(19%) sepia(12%) saturate(572%) hue-rotate(152deg) brightness(91%) contrast(91%);
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 40px;
+  background-color: #c3d6e6;
+  /* Light teal background */
+}
+
+.content {
+  /* max-width: 50%; */
+  flex: 1;
+}
+
+.content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+.content p {
+  font-size: 18px;
+  color: #444444;
+  /* Medium grey for paragraph */
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+button {
+  background-color: #FFB6C1;
+  /* pink */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #FF69B4;
+  /* Darker Pink on Hover */
+}
+
+.image img {
+  max-width: 800px;
+  height: 100%;
+  margin-bottom: 50px;
+}
+
+.content-section {
+  padding: 40px;
+  background-color: white;
+  /* White */
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-section h3 {
+  font-family: 'Poppins', sans-serif;
+  /* Section heading font */
+  font-size: 1.8em;
+  /* Section heading size */
+}
+
+.content-section p {
+  font-size: 1em;
+  /* Standard paragraph size */
+}
+
+/* Resources Grid Styling */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.resource-card {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: scale(1.05); /* Adds a hover effect to make cards pop */
+}
+
+.resource-card img {
+    width: 100%; /* Ensures the image fits within the card */
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.resource-card h4 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+.resource-card p {
+    font-size: 0.9em;
+    color: #444444;
+    margin-bottom: 15px;
+}
+
+.resource-card .button {
+    background-color: #FFB6C1;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.resource-card .button:hover {
+    background-color: #FF69B4;
+    cursor: pointer;
+}
+
+
+/* Search Bar */
+.search-bar {
+  position: absolute;
+  top: 70px;
+  right: 40px;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+  border: 1px solid #E6E6FA;
+  outline: none;
+  padding: 8px;
+  width: 200px;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  background-color: #A3C1DA;
+  /* Teal Green */
+  color: #333333;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  width: auto;
+  margin-top: 20px;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker</title>
+    <link rel="stylesheet" href="./css/mood-tracker.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">MWH</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resource.html">Resourses</a></li>
+                <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                <li><a href="Quiz.html">Quizzes</a></li>
+                <li><a href="blogs.html">Blog</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="#" id="search-icon"><img src="./images/search-icon.svg" alt="Search"></a>
+                    
+        </div>
+    </header>
+    <div class="content-container">
+        <!-- <div class="brain-img">
+            <img src="./images/brain0.png" alt="brain0">
+        </div> -->
+        <div class="tracker-container">
+            <h2>Mood Tracker</h2>
+            <div class="mood-circles">
+                <div class="mood-circle mood-happy">😊</div>
+                <div class="mood-circle mood-neutral">😐</div>
+                <div class="mood-circle mood-sad">😢</div>
+                <div class="mood-circle mood-angry">😠</div>
+            </div>
+
+            <div class="mood-options">
+                <label>
+                    <input type="radio" name="mood" value="😊">
+                    😊 Happy
+                </label>
+                <label>
+                    <input type="radio" name="mood" value="😐">
+                    😐 Neutral
+                </label>
+                <label>
+                    <input type="radio" name="mood" value="😔">
+                    😔 Sad
+                </label>
+                <label>
+                    <input type="radio" name="mood" value="😠">
+                    😠 Angry
+                </label>
+                <label>
+                    <input type="radio" name="mood" value="😰">
+                    😰 Anxious
+                </label>
+            </div>
+            <br>
+        <textarea id="note" placeholder="Add a note (optional)" class="note-input"></textarea>
+        <button onclick="saveMood()" class="save-button">Save Mood</button>
+        <h3>Mood Summary</h3>
+        <div id="mood-summary" class="mood-summary">
+            <!-- Stored mood entries will be displayed here -->
+        </div>
+    </div>
+    </div>
+    <!-- Optional Search Bar -->
+    <div id="search-bar" class="search-bar hidden">
+        <input type="text" placeholder="Search...">
+    </div>
+    <footer>
+        <p>&copy; 2024 Mental Wellness Hub. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

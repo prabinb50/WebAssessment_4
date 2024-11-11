@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support Hub- Understanding Anxiety: Signs, Symptoms, and Solutions</title>
+    <link rel="stylesheet" href="./css/blog.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">MWH</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../resource.html">Resourses</a></li>
+                <li><a href="../mood-tracker.html">Mood Tracker</a></li>
+                <li><a href="../Quiz.html">Quizzes</a></li>
+                <li><a href="../blogs.html">Blog</a></li>
+                <li><a href="../about-us.html">About Us</a></li>
+                <li><a href="../contact-us.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="#" id="search-icon"><img src="./search-icon.svg" alt="Search"></a>
+            <!-- <a href="#"><img src="user-icon.svg" alt="User"></a>
+            <a href="#"><img src="heart-icon.svg" alt="Favorites"></a> -->
+        </div>
+    </header>
+
+    <!-- Main content section -->
+    <main>
+        <h2>Ways to Achieve Peace of Mind</h2>
+        <div class="content-container">
+            <div class="text-content">
+                <p>
+                    Finding peace of mind means doing things that help you feel calm and happy. By making these simple habits a part of your daily life, you can enjoy a more relaxed and peaceful state of mind. Start with small changes and build habits that support your overall well-being. Things to do are as follows:
+                </p>
+                <ul>
+                    <li>1. Practice Mindfulness: Focus on breathing or meditation to stay calm.</li>
+                    <li>2. Maintain a Healthy Routine: Stick to a regular sleep, eating, and exercise schedule.</li>
+                    <li>3. Connect with Nature: Spend time outside to feel refreshed and calm.</li>
+                    <li>4. Build Strong Relationships: Stay close to family and friends for support.</li>
+                    <li>5. Practice Gratitude: Think about the good things in your life to stay positive.</li>
+                </ul>
+            </div>
+            <div class="image-placeholder">
+                <img src="./image/peace of mind.jpg" alt="Peace of Mind Image">
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Footer section -->
+     <!-- Comment Section -->
+     <section class="comments-section">
+        <h3>Comments</h3>
+        <form id="commentForm">
+            <textarea id="commentInput" placeholder="Leave a comment..." rows="4" required></textarea><br>
+            <button type="submit" class="button" id="submit-button">Submit</button>
+        </form>
+        <div id="commentsDisplay"></div> <!-- This will display the comments -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mental Wellness Hub. All rights reserved.</p>
+    </footer>
+    <script>
+        // Function to load comments from localStorage and display them
+        function loadComments() {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            const commentsDisplay = document.getElementById("commentsDisplay");
+            commentsDisplay.innerHTML = ""; // Clear previous comments
+            
+            // Loop through the comments and display each one
+            comments.forEach(function(comment) {
+                const commentDiv = document.createElement("div");
+                commentDiv.classList.add("comment");
+                commentDiv.innerHTML = `
+                    <p>${comment}</p>
+                    <hr>
+                `;
+                commentsDisplay.appendChild(commentDiv);
+            });
+        }
+    
+        // Function to handle form submission and add a new comment
+        document.getElementById("commentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting and refreshing the page
+    
+            // Get the comment input value
+            const commentInput = document.getElementById("commentInput").value.trim();
+    
+            if (commentInput === "") {
+                alert("Please enter a comment."); // Alert if the comment is empty
+                return;
+            }
+    
+            // Get existing comments from localStorage or initialize an empty array
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+    
+            // Add the new comment to the array
+            comments.push(commentInput);
+    
+            // Save the updated comments array back to localStorage
+            localStorage.setItem("comments", JSON.stringify(comments));
+    
+            // Reload the comments to display the new one
+            loadComments();
+    
+            // Clear the comment input field after submitting
+            document.getElementById("commentInput").value = "";
+        });
+    
+        // Load comments when the page loads
+        window.onload = function() {
+            loadComments();
+        };
+    </script>
+
+</body>
+</html>

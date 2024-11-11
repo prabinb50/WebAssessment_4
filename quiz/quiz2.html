@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Quiz</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">MWH</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../resource.html">Resourses</a></li>
+                <li><a href="../mood-tracker.html">Mood Tracker</a></li>
+                <li><a href="../Quiz.html">Quizzes</a></li>
+                <li><a href="../blogs.html">Blog</a></li>
+                <li><a href="../about-us.html">About Us</a></li>
+                <li><a href="../contact-us.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="#" id="search-icon"><img src="../images/search-icon.svg" alt="Search"></a>
+        </div>
+    </header><br><br>
+    <h1 style="text-align: center;">Building resilience </h1>
+    <main>
+        <form id="quiz2" class="quiz-form">
+            <!-- Question 1 -->
+            <div class="question">
+                <h2>1. How often do you recover quickly from setbacks or disappointments?</h2>
+                <label>
+                    <input type="radio" name="q1" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="always"> Always
+                </label>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <h2>2. Do you believe that challenges can help you grow stronger?</h2>
+                <label>
+                    <input type="radio" name="q2" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>3. How often do you find solutions to problems rather than focusing on the negatives?</h2>
+                <label>
+                    <input type="radio" name="q3" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>4. Are you able to stay optimistic during difficult times?</h2>
+                <label>
+                    <input type="radio" name="q4" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>5. How often do you seek support from others when you face challenges?</h2>
+                <label>
+                    <input type="radio" name="q5" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="always"> Always
+                </label>
+            </div>
+
+            <!-- Add more questions similarly -->
+
+            <!-- Submit Button -->
+            <button type="button" id="submit-btn">Get Results</button>
+        </form>
+        <div class="result"></div><!-- Add a div to display the result -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mental Wellness Hub. All rights reserved.</p>
+    </footer>
+</body>
+
+<script>
+    document.querySelector('#submit-btn').addEventListener('click', function () {
+        const answers = document.querySelectorAll('.quiz-form input[type="radio"]:checked');
+        const totalQuestions = document.querySelectorAll('.question').length;
+
+        // Ensure all questions are answered
+        if (answers.length < totalQuestions) {
+            alert("Please answer all questions before submitting.");
+            return;
+        }
+
+        let score = 0;
+
+        // Calculate score based on responses
+        answers.forEach(answer => {
+            switch (answer.value) {
+                case 'never':
+                    score += 1;
+                    break;
+                case 'sometimes':
+                    score += 2;
+                    break;
+                case 'often':
+                    score += 3;
+                    break;
+                case 'always':
+                    score += 4;
+                    break;
+            }
+        });
+
+        // Analysis and suggestion based on score
+        let analysis = '';
+        let suggestion = '';
+
+        if (score <= 5) {
+            analysis = "You may find resilience a challenge at times.";
+            suggestion = "Start by acknowledging small achievements and practice gratitude daily.";
+        } else if (score <= 10) {
+            analysis = "You’re developing resilience but may feel discouraged at times.";
+            suggestion = "Try visualization techniques to enhance optimism and consider mindfulness exercises.";
+        } else if (score <= 15) {
+            analysis = "You often approach situations with resilience.";
+            suggestion = "Maintain your resilience with regular goal-setting and self-reflection activities.";
+        } else {
+            analysis = "You demonstrate strong resilience in facing challenges.";
+            suggestion = "Keep up your resilience by mentoring others and seeking new challenges to grow further.";
+        }
+
+        // Random positive affirmation
+        const affirmations = [
+            "Believe in your inner strength!",
+            "You have the power to overcome any obstacle.",
+            "Remember, resilience grows stronger with each challenge.",
+            "Stay positive; every challenge is a step toward growth.",
+            "Keep moving forward; resilience is your superpower!"
+        ];
+        const randomAffirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
+
+        // Display result
+        const resultDiv = document.querySelector('.result');
+        resultDiv.innerHTML = `
+            <h2>Resilience Analysis</h2>
+            <p>${analysis}</p>
+            <h2>Suggested Strategy</h2>
+            <p>${suggestion}</p>
+            <h2>Positive Affirmation</h2>
+            <p>${randomAffirmation}</p>
+        `;
+        resultDiv.style.marginTop = '20px';
+        resultDiv.style.padding = '20px';
+        resultDiv.style.backgroundColor = '#FFB6C1';
+        resultDiv.style.borderRadius = '8px';
+        resultDiv.style.transition = 'opacity 0.5s';
+        resultDiv.style.opacity = '0';
+
+        // Fade-in effect for result
+        setTimeout(() => {
+            resultDiv.style.opacity = '1';
+        }, 50);
+    });
+</script>
+
+
+</html>

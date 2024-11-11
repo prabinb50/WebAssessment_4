@@ -1,0 +1,230 @@
+/* General Responsive Styling */
+body {
+    font-family: 'Lora', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #c3d6e6; /* Slightly lighter background */
+    overflow-x: hidden; /* Avoid horizontal scrolling */
+}
+
+/* Header Styling */
+header {
+    background-color: #A3C1DA; 
+    color: #333333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    position: fixed;
+    width: 98%;
+    top: 0; /* Ensure it's at the very top */
+    left: 0;
+    right: 0; /* Make it span the full width */
+    z-index: 1000; /* Keep it on top of other elements */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bolder;
+    color: #fff;
+    /* Dark grey color */
+  
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333333;
+    /* Soft Pink for links */
+    font-size: 16px;
+  }
+  
+  .icons a {
+    margin-left: 15px;
+}
+
+.icons img {
+    width: 24px;
+    height: 24px;
+    filter: invert(19%) sepia(12%) saturate(572%) hue-rotate(152deg) brightness(91%) contrast(91%);
+}
+
+/* Theme Touch for Links */
+nav ul li a:hover {
+    color: #FFB6C1; /* Light pink on hover */
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px;
+    position: relative;
+}
+
+.about-us-text p{
+    font-size: large;
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    color: #444444; /* Medium grey for paragraph */
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.why-mhsh p{
+    font-size: large;
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    color: #444444; /* Medium grey for paragraph */
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+/* Image Styling */
+.about-us-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.why-mhsh-images {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.why-mhsh-images .image-box {
+    width: 30%;
+}
+
+.why-mhsh-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.why-mhsh-images h3 {
+    text-align: center;
+    color: #333333;
+}
+
+h2 {
+    color: #333333;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #A3C1DA;
+    /* Teal Green */
+    color: #333333;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: auto;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    .about-us-image img {
+        height: auto;
+    }
+
+    .why-mhsh-images {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .why-mhsh-images .image-box {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    h2, h3 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .why-mhsh-images .image-box {
+        width: 100%;
+    }
+}
+
+/* Search Bar and Icons */
+.icons a {
+    margin-left: 15px;
+}
+
+.icons img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Search Bar */
+.search-bar {
+    position: absolute;
+    top: 70px;
+    right: 40px;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+    border: 1px solid #E6E6FA;
+    outline: none;
+    padding: 8px;
+    width: 200px;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
+}

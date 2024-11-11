@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Quiz</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+</head>
+
+<body>
+    <header>
+        <div class="logo">MWH</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../resource.html">Resourses</a></li>
+                <li><a href="../mood-tracker.html">Mood Tracker</a></li>
+                <li><a href="../Quiz.html">Quizzes</a></li>
+                <li><a href="../blogs.html">Blog</a></li>
+                <li><a href="../about-us.html">About Us</a></li>
+                <li><a href="../contact-us.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="#" id="search-icon"><img src="../images/search-icon.svg" alt="Search"></a>
+        </div>
+    </header><br><br>
+    <h1 style="text-align: center;">Stress management</h1>
+    <main>
+        <form id="quiz6" class="quiz-form">
+            <!-- Question 1 -->
+            <div class="question">
+                <h2>1. Do you set boundaries to prevent work from interfering with your personal time?</h2>
+                <label>
+                    <input type="radio" name="q1" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="always"> Always
+                </label>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <h2>2. How often do you feel stressed about work when you're at home or during personal time?</h2>
+                <label>
+                    <input type="radio" name="q2" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>3. Are you able to take breaks or time off from work without feeling guilty?</h2>
+                <label>
+                    <input type="radio" name="q3" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>4. Do you feel satisfied with the amount of time you dedicate to both work and personal life?</h2>
+                <label>
+                    <input type="radio" name="q4" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="always"> Always
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>5. How often do you feel like you can effectively balance work responsibilities and personal life?
+                </h2>
+                <label>
+                    <input type="radio" name="q5" value="never"> Never
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="sometimes"> Sometimes
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="often"> Often
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="always"> Always
+                </label>
+            </div>
+
+            <!-- Add more questions similarly -->
+
+            <!-- Submit Button -->
+            <button type="button" id="submit-btn">Get Results</button>
+        </form>
+        <div class="result"></div> <!-- Add a div to display the result -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mental Wellness Hub. All rights reserved.</p>
+    </footer>
+
+</body>
+<script>
+    document.querySelector('#submit-btn').addEventListener('click', function () {
+        const answers = document.querySelectorAll('.quiz-form input[type="radio"]:checked');
+        const totalQuestions = document.querySelectorAll('.question').length;
+
+        // Ensure all questions are answered
+        if (answers.length < totalQuestions) {
+            alert("Please answer all questions before submitting.");
+            return;
+        }
+
+        let score = 0;
+
+        // Calculate score based on responses
+        answers.forEach(answer => {
+            switch (answer.value) {
+                case 'never':
+                    score += 1;
+                    break;
+                case 'sometimes':
+                    score += 2;
+                    break;
+                case 'often':
+                    score += 3;
+                    break;
+                case 'always':
+                    score += 4;
+                    break;
+            }
+        });
+
+        // Analysis and suggestions based on score
+        let analysis = '';
+        let suggestion = '';
+
+        if (score <= 5) {
+            analysis = "You may be struggling with work-life balance, and work stress could be affecting your personal time.";
+            suggestion = "Try setting clearer boundaries, such as designated 'no work' times, and prioritize activities that help you recharge.";
+        } else if (score <= 10) {
+            analysis = "You have some balance but may still find work encroaching on your personal life.";
+            suggestion = "Consider scheduling breaks and establishing routines that help separate work from personal time. Taking guilt-free time off is essential for overall well-being.";
+        } else if (score <= 15) {
+            analysis = "You have a decent work-life balance but might still feel occasional stress spillover.";
+            suggestion = "Maintain the balance you’ve achieved by communicating boundaries with others and practicing self-care regularly.";
+        } else {
+            analysis = "You have a strong work-life balance and seem to handle work-related stress effectively.";
+            suggestion = "Keep up your healthy practices and continue enjoying both work and personal time. You might also share tips with others who could benefit from your approach!";
+        }
+
+        // Random encouragement for work-life balance
+        const encouragements = [
+            "Remember, taking time for yourself is not selfish; it's essential.",
+            "You're doing great! Balance is key to long-term success.",
+            "A balanced life leads to greater happiness and productivity.",
+            "Taking breaks helps refresh your mind and spirit.",
+            "Keep prioritizing both your work goals and personal well-being."
+        ];
+        const randomEncouragement = encouragements[Math.floor(Math.random() * encouragements.length)];
+
+        // Display result
+        const resultDiv = document.querySelector('.result');
+        resultDiv.innerHTML = `
+            <h2>Work-Life Balance Analysis</h2>
+            <p>${analysis}</p>
+            <h2>Suggested Approach</h2>
+            <p>${suggestion}</p>
+            <h2>Encouragement</h2>
+            <p>${randomEncouragement}</p>
+        `;
+        resultDiv.style.marginTop = '20px';
+        resultDiv.style.padding = '20px';
+        resultDiv.style.backgroundColor = '#E0F7FA';
+        resultDiv.style.borderRadius = '8px';
+        resultDiv.style.transition = 'opacity 0.5s';
+        resultDiv.style.opacity = '0';
+
+        // Fade-in effect for result
+        setTimeout(() => {
+            resultDiv.style.opacity = '1';
+        }, 50);
+    });
+</script>
+
+</html>
